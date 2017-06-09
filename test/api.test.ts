@@ -11,7 +11,7 @@ const key = process.env.key as string
 const merchant = parseInt(process.env.merchant, 10)
 const port = parseInt(process.env.port, 10)
 const phone = process.env.phone
-const product = parseInt(process.env.code, 10)
+const product = parseInt(process.env.product, 10)
 const outTradeNo = process.env.outTradeNo
 
 describe('api', () => {
