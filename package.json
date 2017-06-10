@@ -1,14 +1,16 @@
 {
   "name": "lljypt",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "start": "npm run tslint && npm run build",
+    "start": "npm run release",
     "build": "npm run build-ts",
     "build-ts": "tsc -p .",
+    "release": "npm run tslint && npm run build && npm run types",
     "test": "jest",
-    "tslint": "tslint -c tslint.json --project tsconfig.json"
+    "tslint": "tslint -c tslint.json --project tsconfig.json",
+    "types": "cpx \"./*.d.ts\" \"./dist/\""
   },
   "repository": {
     "type": "git",
@@ -30,6 +32,7 @@
     "@types/jest": "^19.2.4",
     "@types/node": "^7.0.29",
     "@types/request": "0.0.43",
+    "cpx": "^1.5.0",
     "dotenv": "^4.0.0",
     "jest": "^20.0.4",
     "ts-jest": "^20.0.6",
