@@ -3,6 +3,7 @@
 import * as utils from '../src/lib/utils'
 
 describe('utils', () => {
+  // tslint:disable:object-literal-sort-keys
   const data = {
     b: 'wrydh',
     c: 12.34,
@@ -11,6 +12,7 @@ describe('utils', () => {
     f: undefined,
     a: 3
   }
+  // tslint:enable:object-literal-sort-keys
   const key = '11111'
 
   test('combine', () => {
