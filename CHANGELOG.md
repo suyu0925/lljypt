@@ -1,3 +1,7 @@
+## v1.0.6
+
+* compact host and port in Option to baseUrl.
+
 ## v1.0.5
 
 * add parseCallback() and feedback() function.

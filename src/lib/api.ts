@@ -5,11 +5,10 @@ import * as request from 'request'
 import * as utils from './utils'
 
 export interface Option {
-  host: string
-  port: number
   merchant: number
   clientId: number
   key: string
+  baseUrl: string
 }
 
 export enum Status {
@@ -97,7 +96,7 @@ export async function charge(option: Option, phone: string, product: number, out
     version: 'V100'
   }
   utils.sign(req, option.key)
-  const url = `http://${option.host}:${option.port}/capi/trade.charge`
+  const url = `${option.baseUrl}/capi/trade.charge`
   const result = (await _request(url, req)) as ChargeResponse
   if (result.rspCode !== 0) {
     throw new Error(`charge error ${result.rspCode}: ${result.rspMsg}`)
@@ -115,7 +114,7 @@ export async function queryOrder(option: Option, outTradeNo: string) {
     version: 'V100'
   }
   utils.sign(req, option.key)
-  const url = `http://${option.host}:${option.port}/capi/query.order`
+  const url = `${option.baseUrl}/capi/query.order`
   const result = (await _request(url, req)) as QueryOrderResponse
   if (result.rspCode !== 0) {
     throw new Error(`charge error ${result.rspCode}: ${result.rspMsg}`)
@@ -132,7 +131,7 @@ export async function getBalance(option: Option) {
     version: 'V100'
   }
   utils.sign(req, option.key)
-  const url = `http://${option.host}:${option.port}/capi/query.balance`
+  const url = `${option.baseUrl}/capi/query.balance`
   const result = (await _request(url, req)) as GetBalanceResponse
   if (result.rspCode !== 0) {
     throw new Error(`charge error ${result.rspCode}: ${result.rspMsg}`)

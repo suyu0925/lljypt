@@ -9,10 +9,9 @@ import * as api from '../src/lib/api'
 const log = debug('test:api')
 
 const clientId = parseInt(process.env.clientId, 10)
-const host = process.env.host as string
+const baseUrl = process.env.baseUrl as string
 const key = process.env.key as string
 const merchant = parseInt(process.env.merchant, 10)
-const port = parseInt(process.env.port, 10)
 const phone = process.env.phone
 const product = parseInt(process.env.product, 10)
 const outTradeNo = process.env.outTradeNo
@@ -20,11 +19,10 @@ const chargeEnable = process.env.charge === 'true'
 
 describe('api', () => {
   const option: api.Option = {
+    baseUrl,
     clientId,
-    host,
     key,
-    merchant,
-    port
+    merchant
   }
 
   describe('money', () => {
@@ -44,7 +42,7 @@ describe('api', () => {
   test('queryOrder', async () => {
     const status = await api.queryOrder(option, outTradeNo)
     log('status: %j', status)
-    expect(status).toBe(api.Status.Fail)
+    expect((status === api.Status.Sucess || status === api.Status.Charging)).toBeTruthy()
   })
 
   test('getBalance', async () => {
