@@ -2,7 +2,9 @@
 
 import * as api from './lib/api'
 
-class Lljypt {
+export { Option, Status } from './lib/api'
+
+export class Lljypt {
   private readonly option: api.Option
 
   constructor(option: api.Option) {
@@ -29,9 +31,3 @@ class Lljypt {
     return api.feedback(done)
   }
 }
-
-export { Option } from './lib/api'
-
-export { Status } from './lib/api'
-
-export default Lljypt

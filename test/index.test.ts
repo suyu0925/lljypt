@@ -4,7 +4,7 @@ import * as dotenv from 'dotenv'
 dotenv.config()
 
 import * as debug from 'debug'
-import { default as LLJYPT, Option, Status } from '../src/index'
+import { Lljypt, Option, Status } from '../src/index'
 
 const log = debug('test:index')
 
@@ -24,7 +24,7 @@ describe('index', () => {
     key,
     merchant
   }
-  const lljypt = new LLJYPT(option)
+  const lljypt = new Lljypt(option)
 
   describe('money', () => {
     test('charge', async () => {

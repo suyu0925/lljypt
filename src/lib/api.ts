@@ -5,10 +5,10 @@ import * as request from 'request'
 import * as utils from './utils'
 
 export interface Option {
-  merchant: number
+  baseUrl: string
   clientId: number
   key: string
-  baseUrl: string
+  merchant: number
 }
 
 export enum Status {

@@ -1,3 +1,7 @@
+## v1.0.7
+
+* export class directly instead of set default.
+
 ## v1.0.6
 
 * compact host and port in Option to baseUrl.

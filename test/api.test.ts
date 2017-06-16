@@ -17,7 +17,7 @@ const product = parseInt(process.env.product, 10)
 const outTradeNo = process.env.outTradeNo
 const chargeEnable = process.env.charge === 'true'
 
-describe('api', () => {
+describe.skip('api', () => {
   const option: api.Option = {
     baseUrl,
     clientId,
