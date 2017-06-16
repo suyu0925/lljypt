@@ -53,4 +53,15 @@ describe('index', () => {
     log('balance: %d', balance)
     expect(balance).toBeGreaterThanOrEqual(0)
   })
+
+  test('parseCallback', () => {
+    const data = {
+      outTradeNo: '2017-06-16-04',
+      sign: 'b81dc99a1eed161e9c1f34ed81bcfb52',
+      status: 4,
+      ts: 1497589708626
+    }
+    const callback = lljypt.parseCallback(data)
+    expect(callback).not.toBeNull()
+  })
 })
