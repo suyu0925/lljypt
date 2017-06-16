@@ -1,6 +1,6 @@
 {
   "name": "lljypt",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "build": "npm run build-ts",
     "build-ts": "tsc -p .",
     "release": "npm run tslint && npm run build && npm run types",
-    "test": "jest -- index.test.ts",
+    "test": "jest",
     "tslint": "tslint -c tslint.json --project tsconfig.json",
     "types": "cpx \"./*.d.ts\" \"./dist/\""
   },

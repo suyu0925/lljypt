@@ -20,6 +20,14 @@ class Lljypt {
   public async getBalance() {
     return api.getBalance(this.option)
   }
+
+  public parseCallback(data: object) {
+    return api.parseCallback(this.option, data)
+  }
+
+  public feedback(done: boolean) {
+    return api.feedback(done)
+  }
 }
 
 export { Option } from './lib/api'

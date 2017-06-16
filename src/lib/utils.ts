@@ -34,3 +34,8 @@ export function sign(json: any, key: string) {
   json.sign = getSignature(json, key)
   return json
 }
+
+export function verifyCallback(json: any, key: string) {
+  const oldSign = json.sign
+  return oldSign === getSignature(json, key)
+}

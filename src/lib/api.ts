@@ -58,6 +58,14 @@ interface GetBalanceResponse extends Response {
   balance: string
 }
 
+interface CallbackRequest {
+  failReason: string
+  outTradeNo: string
+  sign: string
+  status: Status
+  ts: number
+}
+
 async function _request(url: string, req: Request) {
   return new Promise((resolve, reject) => {
     request({
@@ -130,4 +138,16 @@ export async function getBalance(option: Option) {
     throw new Error(`charge error ${result.rspCode}: ${result.rspMsg}`)
   }
   return parseFloat(result.balance)
+}
+
+export function parseCallback(option: Option, data: object) {
+  if (utils.verifyCallback(data, option.key)) {
+    return data as CallbackRequest
+  } else {
+    return null
+  }
+}
+
+export function feedback(done: boolean): string {
+  return done ? 'OK' : 'NOT OK'
 }

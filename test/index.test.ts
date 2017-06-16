@@ -45,7 +45,7 @@ describe('index', () => {
   test('queryOrder', async () => {
     const status = await lljypt.queryOrder(outTradeNo)
     log('status: %j', status)
-    expect(status).toBe(Status.Fail)
+    expect(status).toBe(Status.Charging)
   })
 
   test('getBalance', async () => {

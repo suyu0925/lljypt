@@ -33,4 +33,15 @@ describe('utils', () => {
     newData = utils.sign(newData, key)
     expect(newData).toEqual(Object.assign(data, { sign: '34cb3f6c0d949f054de8afddcc581071' }))
   })
+
+  test('verifyCallback', () => {
+    const callbackReq = {
+      failReason: '充值失败',
+      outTradeNo: 'us0pt4lw5w0dtj8i3x4dx71hej79',
+      sign: '7061b61b933cc2777b5b6649be2cdbb9',
+      status: 5,
+      ts: 1472181871485
+    }
+    expect(utils.verifyCallback(callbackReq, key)).toBe(true)
+  })
 })

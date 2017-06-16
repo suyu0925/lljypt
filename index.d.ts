@@ -8,6 +8,10 @@ declare class Lljypt {
   queryOrder(outTradeNo: string): Promise<Lljypt.Status>
 
   getBalance(): Promise<number>
+
+  parseCallback(data: object): Lljypt.CallbackRequest
+
+  feedback(done: boolean): string
 }
 
 declare namespace Lljypt {
@@ -23,5 +27,13 @@ declare namespace Lljypt {
     Sucess = 4,
     Fail = 5,
     Charging = 2
+  }
+
+  export interface CallbackRequest {
+    failReason: string
+    outTradeNo: string
+    sign: string
+    status: Status
+    ts: number
   }
 }
