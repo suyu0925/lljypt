@@ -1,3 +1,7 @@
+## v1.0.8
+
+* use declaration tsc compiled.
+
 ## v1.0.7
 
 * export class directly instead of set default.

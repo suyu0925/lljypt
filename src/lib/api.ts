@@ -57,7 +57,7 @@ interface GetBalanceResponse extends Response {
   balance: string
 }
 
-interface CallbackRequest {
+export interface CallbackRequest {
   failReason: string
   outTradeNo: string
   sign: string
